@@ -1,0 +1,19 @@
+<%= f.hidden_field :image_type, :value => "image_right" %>
+<div>
+  <label>画像</label>
+  <div>
+    <%= f.file_field :image %>
+  </div>
+</div>
+<div>
+  <label>タイトル</label>
+  <div>
+    <%= f.text_field :title %>
+  </div>
+</div>
+<div>
+  <label>説明</label>
+  <div>
+    <%= f.text_area :head_text %>
+  </div>
+</div>

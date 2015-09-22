@@ -1,8 +1,4 @@
-#typeを選んだらtypeごとに表示するフィールドを変更する<br>
-#例えば、「画像左type」を選択した場合は、画像左typeのフィールドをajaxで出現させる<br>
-#取りあえずサービスの作成が可能かどうかのチェックを行う。<br>
-<div>
-  <% if @service.errors.any? %>
+<% if @service.errors.any? %>
 <div class="error_box">
 	<%= @service.errors.count %>つのエラーがあります
 		<ul>
@@ -13,33 +9,30 @@
 </div>
 <% end %>
 
+<%= button_tag "画像左", id: "image_left"%>
+<%= button_tag "画像右", id: "image_right"%>
+<%= button_tag "画像なし", id: "no_image"%>
+<br>
+<br>
+<div class="image_left_form">
 <%= form_for([:admin, @service]) do |f| %>
+  <%= render "image_left_form", f: f %>
   <div>
-    <label>タイプ</label>
-    <div>
-      <%= image_tag @service.image_url %><br>
-      <%= f.select :image_type, [["画像左", "left_image"], ["画像右", "right_image"], ["画像上", "top_image"], ["画像なし", "no_image"]], :prompt => "選択してください" %>
-    </div>
+    <%= f.submit %>
   </div>
+<% end %>
+</div>
+<div class="image_right_form">
+<%= form_for([:admin, @service]) do |f| %>
+  <%= render "image_right_form", f: f %>
   <div>
-    <label>画像</label>
-    <div>
-      <%= f.file_field :image %>
-    </div>
+    <%= f.submit %>
   </div>
-  <div>
-    <label>タイトル</label>
-    <div>
-      <%= f.text_field :title %>
-    </div>
-  </div>
-  <div>
-    <label>説明</label>
-    <div>
-      <%= f.text_area :head_text %>
-    </div>
-  </div>
-  
+<% end %>
+</div>
+<div class="no_image_form">
+<%= form_for([:admin, @service]) do |f| %>
+  <%= render "no_image_form", f: f %>
   <div>
     <%= f.submit %>
   </div>
