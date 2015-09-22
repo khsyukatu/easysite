@@ -2,5 +2,16 @@
   <%= link_to "新規作成", new_admin_service_path %>
 </p>
 <% if @service.present? %>
-  <%= link_to "編集", edit_admin_service_path(@service) %>
+  <%= link_to "編集", edit_admin_service_path(@service) %><br>
+  
+  <% if @service.image_type == "image_left"%>
+    <p>画像は左</p>
+    <p>説明は右</p>
+  <% elsif @service.image_type == "image_right"%>
+    <p>画像は右</p>
+    <p>説明は左</p>
+  <% elsif @service.image_type == "no_image"%>
+    <p>画像はなし</p>
+    <p>説明は下</p>
+  <% end %>
 <% end %>

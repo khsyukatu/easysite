@@ -1,0 +1,29 @@
+<% if @article.errors.any? %>
+<div class="error_box">
+	<%= @article.errors.count %>つのエラーがあります
+		<ul>
+			<% @article.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+</div>
+<% end %>
+
+<%= form_for([:admin, @article]) do |f| %>
+  <div>
+    <label>タイトル</label>
+    <div>
+      <%= f.text_field :title %>
+    </div>
+  </div>
+  <div>
+    <label>内容</label>
+    <div>
+      <%= f.text_area :body %>
+    </div>
+  </div>
+  
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

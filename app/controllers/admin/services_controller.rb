@@ -15,7 +15,7 @@ class Admin::ServicesController < ApplicationController
 
   def create
     @service = current_site.build_service(service_params)
-    if@service.save
+    if @service.save
       flash[:success] = "作成しました"
       redirect_to admin_services_path
     else
@@ -25,7 +25,7 @@ class Admin::ServicesController < ApplicationController
   end
   
   def update
-    if@service.update(service_params)
+    if @service.update(service_params)
       flash[:success] = "編集しました"
       redirect_to admin_services_path
     else
@@ -50,6 +50,6 @@ class Admin::ServicesController < ApplicationController
   end
   
   def service_params
-    params.require(:service).permit(:image, :head_text, :title, :image_type)
+    params.require(:service).permit(:image, :head_text, :title, :image_type, :site_id)
   end
 end

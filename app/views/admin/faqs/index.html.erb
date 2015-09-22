@@ -1,0 +1,12 @@
+<%= link_to "新規作成", new_admin_faq_path %>
+<table>
+  <th>id</th><th>タイトル</th><th>編集</th><th>削除</th>
+    <tr>
+    <% @faqs.each do |faq| %>
+      <td><%= faq.id %></td>
+      <td><%= faq.title %></td>
+      <td><%= link_to "編集", edit_admin_faq_path(faq) %></td>
+      <td><%= link_to "削除", admin_faq_path(faq), :method => :delete, data: { :confirm => "削除しますがよろしいですか？" } %></td>
+    <% end %>
+    </tr>
+</table>

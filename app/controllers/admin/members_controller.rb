@@ -50,6 +50,6 @@ class Admin::MembersController < ApplicationController
   end
   
   def member_params
-    params.require(:member).permit(:image, :name, :description)
+    params.require(:member).permit(:image, :name, :description, :site_id)
   end
 end
