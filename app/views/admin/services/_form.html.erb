@@ -1,0 +1,47 @@
+#typeを選んだらtypeごとに表示するフィールドを変更する<br>
+#例えば、「画像左type」を選択した場合は、画像左typeのフィールドをajaxで出現させる<br>
+#取りあえずサービスの作成が可能かどうかのチェックを行う。<br>
+<div>
+  <% if @service.errors.any? %>
+<div class="error_box">
+	<%= @service.errors.count %>つのエラーがあります
+		<ul>
+			<% @service.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+</div>
+<% end %>
+
+<%= form_for([:admin, @service]) do |f| %>
+  <div>
+    <label>タイプ</label>
+    <div>
+      <%= image_tag @service.image_url %><br>
+      <%= f.select :image_type, [["画像左", "left_image"], ["画像右", "right_image"], ["画像上", "top_image"], ["画像なし", "no_image"]], :prompt => "選択してください" %>
+    </div>
+  </div>
+  <div>
+    <label>画像</label>
+    <div>
+      <%= f.file_field :image %>
+    </div>
+  </div>
+  <div>
+    <label>タイトル</label>
+    <div>
+      <%= f.text_field :title %>
+    </div>
+  </div>
+  <div>
+    <label>説明</label>
+    <div>
+      <%= f.text_area :head_text %>
+    </div>
+  </div>
+  
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>

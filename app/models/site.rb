@@ -32,7 +32,12 @@ class Site < ActiveRecord::Base
          
   extend FriendlyId
   friendly_id :site_name
-         
+  
+  #validation
   validates :site_name, presence: true, length: { maximum: 16 },  format: { with: /\A[\w@-]*[A-Za-z][\w-]*\z/ }
   validates_uniqueness_of :site_name
+  
+  #association
+  has_one :service
+  has_many :members
 end

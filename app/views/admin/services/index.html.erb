@@ -1,0 +1,6 @@
+<p>
+  <%= link_to "新規作成", new_admin_service_path %>
+</p>
+<% if @service.present? %>
+  <%= link_to "編集", edit_admin_service_path(@service) %>
+<% end %>

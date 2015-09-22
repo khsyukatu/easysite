@@ -1,6 +1,21 @@
 Rails.application.routes.draw do
-  devise_for :sites, controllers: { :registrations => "sites/registrations", :sessions => "sites/sessions", :passwords => "sites/passwords", :confirmations => "sites/confirmations" }
+  namespace :admin do
+  get 'dashboard/index'
+  end
 
+  get 'sites/show'
+
+  devise_for :sites, controllers: { :registrations => "sites/registrations", :sessions => "sites/sessions", :passwords => "sites/passwords", :confirmations => "sites/confirmations" }
+  root :to => "main#index"
+  
+  resources :sites, :only => [:show] do
+    
+  end
+  
+  namespace "admin" do
+    root :to => "dashboard#index"
+    resources :services, :members
+  end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

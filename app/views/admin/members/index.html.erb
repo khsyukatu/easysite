@@ -1,0 +1,7 @@
+<%= link_to "新規メンバー作成", new_admin_member_path %>
+
+<% @members.each do |member| %>
+<div>
+  <%= image_tag member.image_url %>:<%= member.name %>
+</div>
+<% end %>

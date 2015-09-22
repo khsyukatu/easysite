@@ -46,3 +46,4 @@ end
 gem 'devise', '~> 3.4.0'  
 gem 'annotate'
 gem 'friendly_id'
+gem 'carrierwave'
