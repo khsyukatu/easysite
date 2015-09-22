@@ -40,4 +40,7 @@ class Site < ActiveRecord::Base
   #association
   has_one :service
   has_many :members
+  has_one :site_template
+  has_one :design_template, :through => :site_template
+  
 end
