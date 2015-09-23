@@ -1,18 +1,19 @@
 # == Schema Information
 #
-# Table name: maps
+# Table name: pages
 #
 #  id         :integer          not null, primary key
-#  body       :text
+#  name       :string
 #  site_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Map < ActiveRecord::Base
+class Page < ActiveRecord::Base
   #validation
-  validates :body, presence: true
+  validates :name, presence: true
   
   #association
   belongs_to :site
+  has_many :page_images
 end

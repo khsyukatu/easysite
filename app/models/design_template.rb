@@ -10,6 +10,12 @@
 #
 
 class DesignTemplate < ActiveRecord::Base
-    has_many :site_templates
-    has_many :sites, :through => :site_templates
+  #validation
+  validates :name, presence: true
+  validates :image, presence: true
+  mount_uploader :image, ImageUploader
+  
+  #association
+  has_many :site_templates
+  has_many :sites, :through => :site_templates
 end

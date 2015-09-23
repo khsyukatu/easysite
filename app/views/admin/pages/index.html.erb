@@ -1,0 +1,12 @@
+<%= link_to "新規作成", new_admin_page_path %>
+<table>
+  <th>id</th><th>タイトル</th><th>編集</th><th>削除</th>
+    <tr>
+    <% @pages.each do |page| %>
+      <td><%= page.id %></td>
+      <td><%= page.title %></td>
+      <td><%= link_to "編集", edit_admin_page_path(page) %></td>
+      <td><%= link_to "削除", admin_page_path(page), :method => :delete, data: { :confirm => "削除しますがよろしいですか？" } %></td>
+    <% end %>
+    </tr>
+</table>

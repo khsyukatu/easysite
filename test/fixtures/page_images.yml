@@ -1,10 +1,12 @@
 # == Schema Information
 #
-# Table name: faqs
+# Table name: page_images
 #
 #  id         :integer          not null, primary key
 #  title      :string
-#  body       :text
+#  head_text  :string
+#  image      :string
+#  image_type :string
 #  site_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -14,10 +16,14 @@
 
 one:
   title: MyString
-  body: MyText
+  head_text: MyString
+  image: MyString
+  image_type: MyString
   site_id: 
 
 two:
   title: MyString
-  body: MyText
+  head_text: MyString
+  image: MyString
+  image_type: MyString
   site_id: 

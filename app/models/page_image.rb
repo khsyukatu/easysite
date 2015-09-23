@@ -1,19 +1,25 @@
 # == Schema Information
 #
-# Table name: faqs
+# Table name: page_images
 #
 #  id         :integer          not null, primary key
 #  title      :string
-#  body       :text
+#  head_text  :string
+#  image      :string
+#  image_type :string
 #  site_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Faq < ActiveRecord::Base
+class PageImage < ActiveRecord::Base
+  mount_uploader :image, ImageUploader
+  
   #validation
   validates :title, presence: true
-  validates :body, presence: true
-    
+  validates :head_text, presence: true
+  validates :image, presence: true
+  
+  #association
   belongs_to :site
 end

@@ -11,10 +11,12 @@
 
 <%= button_tag "画像左", id: "image_left"%>
 <%= button_tag "画像右", id: "image_right"%>
+<%= button_tag "画像上", id: "image_top"%>
 <%= button_tag "画像なし", id: "no_image"%>
 <br>
 <br>
 <div class="image_left_form">
+  画像左のフォーム
 <%= form_for([:admin, @service]) do |f| %>
   <%= render "image_left_form", f: f %>
   <div>
@@ -23,6 +25,7 @@
 <% end %>
 </div>
 <div class="image_right_form">
+  画像右のフォーム
 <%= form_for([:admin, @service]) do |f| %>
   <%= render "image_right_form", f: f %>
   <div>
@@ -30,7 +33,17 @@
   </div>
 <% end %>
 </div>
+<div class="image_top_form">
+  画像上のフォーム
+<%= form_for([:admin, @service]) do |f| %>
+  <%= render "image_top_form", f: f %>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
 <div class="no_image_form">
+  画像なしのフォーム
 <%= form_for([:admin, @service]) do |f| %>
   <%= render "no_image_form", f: f %>
   <div>
