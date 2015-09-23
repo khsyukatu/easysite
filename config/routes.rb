@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   
   namespace "admin" do
     root :to => "dashboard#index"
-    resources :services, :members, :articles, :faqs
+    resources :services, :members, :articles, :faqs, :maps
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

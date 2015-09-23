@@ -3,7 +3,7 @@ class Admin::ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
   
   def index
-    @service = Service.where(site_id: current_site.id).first
+    @service = Service.where(site_id: current_site.id).last
   end
   
   def show

@@ -1,0 +1,23 @@
+<% if @map.errors.any? %>
+<div class="error_box">
+	<%= @map.errors.count %>つのエラーがあります
+		<ul>
+			<% @map.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+</div>
+<% end %>
+
+<%= form_for([:admin, @map]) do |f| %>
+  <div>
+    <label>グーグルマップの埋め込み</label>
+    <div>
+      <%= f.text_area :body %>
+    </div>
+    ※Googleマップより、埋め込みたい地図の住所を入力し、地図を共有または埋め込むより取得してください。
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

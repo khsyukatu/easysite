@@ -1,0 +1,3 @@
+<%= link_to "マップ作成", new_admin_map_path%><br>
+<%= raw(@map.body) if @map.present? %><br>
+<%= link_to "編集", edit_admin_map_path(@map) %>
