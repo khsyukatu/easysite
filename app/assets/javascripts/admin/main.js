@@ -29,3 +29,9 @@ $(function() {
         $('.image_top_form').hide();
     });
 });
+
+$(function() {
+    $("#text_add").click(function(){
+        $('.text_add_form').toggle(200);
+    });
+});

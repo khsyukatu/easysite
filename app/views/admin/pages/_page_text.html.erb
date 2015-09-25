@@ -1,0 +1,16 @@
+<%= form_for([:admin, page.page_texts.build], remote: true) do |f| %>
+  <%= hidden_field_tag :page_id, page.id %>
+  <div>
+    <label>見出し</label>
+    <div>
+      <%= f.text_field :title %>
+    </div>
+  </div>
+  <div>
+    <label>テキスト</label>
+    <div>
+      <%= f.text_area :body %>
+    </div>
+  </div>
+  <%= f.submit "追加" %>
+<% end %>

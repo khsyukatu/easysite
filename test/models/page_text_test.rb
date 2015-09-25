@@ -1,18 +1,18 @@
 # == Schema Information
 #
-# Table name: pages
+# Table name: page_texts
 #
 #  id         :integer          not null, primary key
-#  name       :string
-#  site_id    :integer
+#  title      :string
+#  body       :text
+#  page_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  status     :boolean          default(FALSE)
 #
 
 require 'test_helper'
 
-class PageTest < ActiveSupport::TestCase
+class PageTextTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

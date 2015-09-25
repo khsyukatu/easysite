@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
-  namespace :admin do
-  get 'dashboard/index'
-  end
-
-  get 'sites/show'
-
-  devise_for :sites, controllers: { :registrations => "sites/registrations", :sessions => "sites/sessions", :passwords => "sites/passwords", :confirmations => "sites/confirmations" }
   root :to => "main#index"
+  devise_for :sites, controllers: { :registrations => "sites/registrations", :sessions => "sites/sessions", :passwords => "sites/passwords", :confirmations => "sites/confirmations" }
+  
   
   resources :sites, :only => [:show] do
     
@@ -15,7 +10,7 @@ Rails.application.routes.draw do
   namespace "admin" do
     root :to => "dashboard#index"
     resources :services, :members, :articles, :faqs, :maps, :pages
-    resources :page_images, only:[:create, :update ,:destroy]
+    resources :page_images, :page_texts, only:[:create, :update ,:destroy]
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

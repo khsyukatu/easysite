@@ -11,6 +11,8 @@ class Admin::PagesController < ApplicationController
   
   def new
   	@page = current_site.pages.build
+  	@page.save
+  	redirect_to admin_page_path(@page)
   end
 
   def create
@@ -41,7 +43,7 @@ class Admin::PagesController < ApplicationController
   def destroy
     @page.destroy
     flash[:success] = "削除しました"
-    redirect_to admin_root_path
+    redirect_to admin_pages_path
   end
   
   private
@@ -50,6 +52,6 @@ class Admin::PagesController < ApplicationController
   end
   
   def page_params
-    params.require(:page).permit(:name, :site_id)
+    params.require(:page).permit(:name, :site_id, :status)
   end
 end

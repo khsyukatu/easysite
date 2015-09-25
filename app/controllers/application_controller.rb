@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     elsif request.subdomain.present? && request.subdomain != 'techacademy-khsyukatu' #'www'に変更すること  #サブドメインでアクセスした場合
       @site = Site.friendly.find(request.subdomain)
       puts @site.design_template if @site.design_template.present? #design_templateが存在しない場合はdefault
-    else #普通にサイトにアクセスした場合
+    elsif request.url =~ %r!/sites! #adminで管理画面にアクセスした場合
       @site = Site.find(params[:id])
       puts @site.design_template if @site.design_template.present? #design_templateが存在しない場合はdefault
     end
