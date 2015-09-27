@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     root :to => "dashboard#index"
     resources :services, :members, :articles, :faqs, :maps, :pages
     resources :page_images, :page_texts, only:[:create, :update ,:destroy]
+    resources :items, only:[:create, :destroy, :update]
+    resources :itemtexts, :itemmovies, only:[:create, :destroy, :update]
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

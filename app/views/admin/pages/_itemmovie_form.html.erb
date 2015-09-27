@@ -1,0 +1,18 @@
+<%= form_for([:admin, page.items.build(type:"Itemmovie")], remote: true) do |f| %>
+  <%= hidden_field_tag :page_id, page.id %>
+  <%= f.hidden_field :type, value: "Itemmovie" %>
+  <div>
+    <label>見出し</label>
+    <div>
+      <%= f.text_field :title %>
+    </div>
+  </div>
+  <div>
+    <label>youtube共有タグ</label>
+    <div>
+      <%= f.text_area :movie %>
+    </div>
+    ※yotubeの共有タグより、共有タグを取得してください。
+  </div>
+  <%= f.submit "追加" %>
+<% end %>

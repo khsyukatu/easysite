@@ -35,3 +35,17 @@ $(function() {
         $('.text_add_form').toggle(200);
     });
 });
+
+$(function() {
+    $("#itemtext").click(function(){
+        $('.itemtext_form').toggle(200);
+        $('.itemmovie_form').hide();
+    });
+});
+
+$(function() {
+    $("#itemmovie").click(function(){
+        $('.itemmovie_form').toggle(200);
+        $('.itemtext_form').hide();
+    });
+});

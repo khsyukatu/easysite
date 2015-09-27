@@ -1,6 +1,4 @@
-#newに作成しているけど、mery形式でshowにformをぶち込む形式にすればrender showで戻って来れるからgoodなのではないでしょうかね<br>
-#editの場合はeditで表示すればOK<br>
-
+#itemで作成を同じように行う
 <h2>公開or下書き保存ボタン</h2>
 <%= form_for([:admin, @page]) do |f| %>
 	<div>
@@ -18,21 +16,10 @@
   <%= f.submit %>
 <% end %>
 
-<% if @page.errors.any? %>
-<div class="error_box">
-	<%= @page.errors.count %>つのエラーがあります
-		<ul>
-			<% @page.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-			<% end %>
-		</ul>
-</div>
-<% end %>
-<h2>何を追加するかのボタン</h2>
-<%= button_tag "テキスト追加", id: "text_add"%>
-<%= button_tag "画像追加", id: "image_add"%>
-<%= button_tag "Twitter追加", id: "twitter_add"%>
-<%= button_tag "facebook追加", id: "facebook_add"%>
+<%= button_tag "テキスト追加", id: "itemtext"%>
+<%= button_tag "画像追加", id: "image_item"%>
+<%= button_tag "youtube追加", id: "itemmovie"%>
+
 <div id="form_part">
-	<%= render partial: 'form_parts', locals: { page: @page } %>
+	<%= render partial: 'item_form', locals: { page: @page } %>
 </div>

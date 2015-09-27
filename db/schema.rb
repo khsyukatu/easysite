@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925074121) do
+ActiveRecord::Schema.define(version: 20150927012652) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -52,6 +52,20 @@ ActiveRecord::Schema.define(version: 20150925074121) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "items", force: :cascade do |t|
+    t.integer  "page_id"
+    t.string   "type"
+    t.string   "title"
+    t.text     "body"
+    t.text     "movie"
+    t.string   "image"
+    t.string   "image_location"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "items", ["page_id"], name: "index_items_on_page_id"
 
   create_table "maps", force: :cascade do |t|
     t.text     "body"

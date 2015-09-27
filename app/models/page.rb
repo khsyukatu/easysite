@@ -12,10 +12,13 @@
 
 class Page < ActiveRecord::Base
   #validation
+  validates :site_id, presence: true
   validates :name, presence: true, on: :update
+  
   
   #association
   belongs_to :site
   has_many :page_images
   has_many :page_texts
+  has_many :items
 end

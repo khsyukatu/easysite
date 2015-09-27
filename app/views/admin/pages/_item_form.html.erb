@@ -1,0 +1,28 @@
+<div class="itemtext_form">
+	<%= render "admin/pages/itemtext_form", page: @page %>
+</div>
+<div class="itemmovie_form">
+	<%= render "admin/pages/itemmovie_form", page: @page %>
+</div>
+
+<h2>ここより下に作成したものを表示する</h2>
+<div id="page_created">
+<% flash.each do |name, msg| %>
+  <div class="flash <%= name %>">
+    <p>
+      <a class="close" data-dismiss="alert">×</a> <!-- アラートダイアログに×ボタンをつける -->
+			<%= msg %>
+		</p>
+	</div><br>
+<% end %>
+
+<% page.items.order('created_at desc').each do |item| %>
+  <% if item.type == "Itemtext"%>
+    <h3><%= item.title %></h3>
+    <p><%= item.body %></p>
+  <% elsif item.type == "Itemmovie"%>
+    <h3><%= item.title %></h3>
+    <div><%= raw(item.movie) %></div>
+  <% end %>
+<% end %>
+</div>

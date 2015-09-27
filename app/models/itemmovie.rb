@@ -1,0 +1,2 @@
+class Itemmovie < Item
+end
