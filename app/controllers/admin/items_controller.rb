@@ -13,6 +13,8 @@ class Admin::ItemsController < ApplicationController
   end
   
   def update
+    @page = Page.find(params[:page_id])
+    
     if@item.update(item_params)
       flash[:success] = "編集しました"
     else
@@ -24,6 +26,20 @@ class Admin::ItemsController < ApplicationController
     @item.destroy
     flash[:success] = "削除しました"
     redirect_to admin_root_path
+  end
+  
+  def up_position
+    @page = Page.find(params[:page_id])
+    
+    @item = Item.find(params[:id])
+    @item.update_attributes(row_order_position: :up)
+  end
+  
+  def down_position
+    @page = Page.find(params[:page_id])
+    
+    @item = Item.find(params[:id])
+    @item.update_attributes(row_order_position: :down)
   end
   
   private

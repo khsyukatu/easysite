@@ -21,10 +21,14 @@
     <h3><%= item.title %></h3>
     <p><%= item.body %></p>
     <p><%= item.row_order %></p>
+    <p><%= button_to "上へ移動", admin_items_up_position_path(id: item.id, page_id: @page.id), remote: true %></p>
+    <p><%= button_to "下へ移動", admin_items_down_position_path(id: item.id, page_id: @page.id), remote: true %></p>
   <% elsif item.type == "Itemmovie"%>
     <h3><%= item.title %></h3>
     <div><%= raw(item.movie) %></div>
     <p><%= item.row_order %></p>
+    <p><%= button_to "上へ移動", admin_items_up_position_path(id: item.id, page_id: @page.id), remote: true %></p>
+    <p><%= button_to "下へ移動", admin_items_down_position_path(id: item.id, page_id: @page.id), remote: true %></p>
   <% end %>
 <% end %>
 </div>

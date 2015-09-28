@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     resources :items, only:[:create, :destroy, :update]
     resources :itemtexts, controller: :items, type: 'Itemtext', only:[:create, :destroy, :update]
     resources :itemmovies, controller: :items, type: 'Itemmovie', only:[:create, :destroy, :update]
+    
+    post 'items/up_position', to: 'items#up_position'
+    post 'items/down_position', to: 'items#down_position'
+    
   end
   
   # The priority is based upon order of creation: first created -> highest priority.
