@@ -12,8 +12,12 @@
 #  image_location :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  row_order      :integer
 #
 
 class Item < ActiveRecord::Base
+  include RankedModel
+  ranks :row_order, class_name: 'Item'
+  
   belongs_to :page
 end

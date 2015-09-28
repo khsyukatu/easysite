@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150927012652) do
+ActiveRecord::Schema.define(version: 20150928012607) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20150927012652) do
     t.string   "image_location"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "row_order"
   end
 
   add_index "items", ["page_id"], name: "index_items_on_page_id"
