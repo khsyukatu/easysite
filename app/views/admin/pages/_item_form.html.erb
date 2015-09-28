@@ -1,8 +1,8 @@
 <div class="itemtext_form">
-	<%= render "admin/pages/itemtext_form", page: @page %>
+	<%= render "admin/pages/itemtext_form", { page: @page, item: @page.items.build } %>
 </div>
 <div class="itemmovie_form">
-	<%= render "admin/pages/itemmovie_form", page: @page %>
+	<%= render "admin/pages/itemmovie_form", { page: @page, item: @page.items.build } %>
 </div>
 
 <h2>ここより下に作成したものを表示する</h2>
@@ -23,12 +23,19 @@
     <p><%= item.row_order %></p>
     <p><%= button_to "上へ移動", admin_items_up_position_path(id: item.id, page_id: @page.id), remote: true %></p>
     <p><%= button_to "下へ移動", admin_items_down_position_path(id: item.id, page_id: @page.id), remote: true %></p>
+    <p><%= button_tag "編集する", id: "textedit" %></p>
+    <div class="itemtext_edit">
+      <%= render "admin/pages/itemtext_form", { page: @page, item: item } %>
+    </div>
   <% elsif item.type == "Itemmovie"%>
     <h3><%= item.title %></h3>
     <div><%= raw(item.movie) %></div>
     <p><%= item.row_order %></p>
     <p><%= button_to "上へ移動", admin_items_up_position_path(id: item.id, page_id: @page.id), remote: true %></p>
     <p><%= button_to "下へ移動", admin_items_down_position_path(id: item.id, page_id: @page.id), remote: true %></p>
+    <div class="itemmovie_edit">
+      <%= render "admin/pages/itemtext_form", { page: @page, item: item } %>
+    </div>
   <% end %>
 <% end %>
 </div>

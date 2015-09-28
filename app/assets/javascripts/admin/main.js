@@ -49,3 +49,18 @@ $(function() {
         $('.itemtext_form').hide();
     });
 });
+
+
+$(function() {
+    $("#textedit").click(function(){
+        $('.itemtext_edit').toggle(200);
+        $('.itemmovie_edit').hide();
+    });
+});
+
+$(function() {
+    $("#movieedit").click(function(){
+        $('.itemmovie_edit').toggle(200);
+        $('.itemtext_edit').hide();
+    });
+});
