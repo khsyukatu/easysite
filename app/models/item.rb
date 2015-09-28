@@ -17,7 +17,7 @@
 
 class Item < ActiveRecord::Base
   include RankedModel
-  ranks :row_order, class_name: 'Item'
+  ranks :row_order, class_name: 'Item', :with_same => :page_id
   
   belongs_to :page
 end
