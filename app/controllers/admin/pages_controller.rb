@@ -49,6 +49,7 @@ class Admin::PagesController < ApplicationController
   private
   def set_page
     @page = Page.where(site_id: current_site.id).find(params[:id])
+    @items = @page.items.rank(:row_order)
   end
   
   def page_params

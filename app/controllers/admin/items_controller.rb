@@ -27,16 +27,8 @@ class Admin::ItemsController < ApplicationController
   end
   
   private
-  def type
-    params[:type]
-  end
-  
   def item_params
-    params.require(type.underscore.to_sym).permit(:type, :page_id, :title, :body, :movie, :image, :image_location)
-  end
-
-  def item_class
-    type.constantize
+    params.require(:item).permit(:type, :page_id, :title, :body, :movie, :image, :image_location, :row_order_position)
   end
   
 end
