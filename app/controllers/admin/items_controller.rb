@@ -3,6 +3,7 @@ class Admin::ItemsController < ApplicationController
 
   def create
     @page = Page.find(params[:page_id])
+    
     @item = @page.items.build(item_params)
     if@item.save
       flash[:success] = "作成しました"
@@ -26,8 +27,16 @@ class Admin::ItemsController < ApplicationController
   end
   
   private
+  def type
+    params[:type]
+  end
+  
   def item_params
-    params.require(:item).permit(:type, :page_id, :title, :body, :movie, :image, :image_location)
+    params.require(type.underscore.to_sym).permit(:type, :page_id, :title, :body, :movie, :image, :image_location)
+  end
+
+  def item_class
+    type.constantize
   end
   
 end

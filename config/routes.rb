@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     resources :services, :members, :articles, :faqs, :maps, :pages
     resources :page_images, :page_texts, only:[:create, :update ,:destroy]
     resources :items, only:[:create, :destroy, :update]
-    resources :itemtexts, :itemmovies, only:[:create, :destroy, :update]
+    resources :itemtexts, controller: :items, type: 'Itemtext', only:[:create, :destroy, :update]
+    resources :itemmovies, controller: :items, type: 'Itemmovie', only:[:create, :destroy, :update]
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

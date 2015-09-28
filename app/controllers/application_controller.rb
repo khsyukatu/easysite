@@ -13,8 +13,8 @@ class ApplicationController < ActionController::Base
       @site = Site.friendly.find(request.subdomain)
       puts @site.design_template if @site.design_template.present? #design_templateが存在しない場合はdefault
     elsif request.url =~ %r!/sites! #adminで管理画面にアクセスした場合
-      @site = Site.find(params[:id])
-      puts @site.design_template if @site.design_template.present? #design_templateが存在しない場合はdefault
+      #@site = Site.find(params[:id])
+      #puts @site.design_template if @site.design_template.present? #design_templateが存在しない場合はdefault
     end
   end
   
