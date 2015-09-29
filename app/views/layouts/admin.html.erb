@@ -1,16 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <title>Easysite</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "easysite" %></title>
+  <%= stylesheet_link_tag 'paper', media: 'all' %>
 </head>
 <body>
-<div>
-  管理画面用のlayoutだよ
-</div>
-<%= yield %>
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">EasySite</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+    </div><!--/.nav-collapse -->
+      </div>
+    </div>
 
+    <div class="container theme-showcase">
+      <%= yield %>
+    </div>  
+<%= javascript_include_tag 'application' %>
 </body>
 </html>
