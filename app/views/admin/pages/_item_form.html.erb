@@ -25,10 +25,10 @@
     <p><%= item.body %></p>
     <p><%= button_to "上へ移動", admin_items_up_position_path(id: item.id, page_id: @page.id), remote: true %></p>
     <p><%= button_to "下へ移動", admin_items_down_position_path(id: item.id, page_id: @page.id), remote: true %></p>
-    <p><%= button_tag "編集する", id: "textedit" %></p>
+    <p><%= button_tag "編集する", class: "textedit", data: { type: "text", item_id: item.id } %></p>
     <p><%= link_to "削除", admin_item_path(item, page_id: @page), :method => :delete, remote: true, data: { :confirm => "削除しますが、宜しいですか？" } %></p>
     
-    <div class="itemtext_edit">
+    <div class="itemtext_edit itemtext_edit_<%= item.id %>">
       <%= render "admin/pages/itemtext_form", { page: @page, item: item } %>
     </div>
   <% elsif item.type == "Itemmovie" %>
@@ -36,17 +36,23 @@
     <div><%= raw(item.movie) %></div>
     <p><%= button_to "上へ移動", admin_items_up_position_path(id: item.id, page_id: @page.id), remote: true %></p>
     <p><%= button_to "下へ移動", admin_items_down_position_path(id: item.id, page_id: @page.id), remote: true %></p>
+    <p><%= button_tag "編集する", class: "movieedit", data: { item_id: item.id } %></p>
     <p><%= link_to "削除", admin_item_path(item, page_id: @page), :method => :delete, remote: true, data: { :confirm => "削除しますが、宜しいですか？" } %></p>
     
-    <div class="itemmovie_edit">
-      <%= render "admin/pages/itemtext_form", { page: @page, item: item } %>
+    <div class="itemmovie_edit itemmovie_edit_<%= item.id %>">
+      <%= render "admin/pages/itemmovie_form", { page: @page, item: item } %>
     </div>
   <% elsif item.type == "Itemimage" %>
     <h3><%= item.title %></h3>
     <div><%= image_tag(item.image.url) %><%= item.image_location %></div>
     <p><%= button_to "上へ移動", admin_items_up_position_path(id: item.id, page_id: @page.id), remote: true %></p>
     <p><%= button_to "下へ移動", admin_items_down_position_path(id: item.id, page_id: @page.id), remote: true %></p>
+    <p><%= button_tag "編集する", class: "imageedit", data: { item_id: item.id } %></p>
     <p><%= link_to "削除", admin_item_path(item, page_id: @page), :method => :delete, remote: true, data: { :confirm => "削除しますが、宜しいですか？" } %></p>
+    
+    <div class="itemimage_edit itemimage_edit_<%= item.id %>">
+      <%= render "admin/pages/itemimage_form", { page: @page, item: item } %>
+    </div>
   <% end %>
 <% end %>
 </div>

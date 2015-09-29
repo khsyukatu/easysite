@@ -24,15 +24,22 @@ $(function() {
 
 
 $(function() {
-    $("#textedit").click(function(){
-        $('.itemtext_edit').toggle(200);
-        $('.itemmovie_edit').hide();
+    $(".textedit").click(function(){
+        var item_id = $(this).data("item-id");
+        $(".itemtext_edit_" + item_id).toggle(200);
     });
 });
 
 $(function() {
-    $("#movieedit").click(function(){
-        $('.itemmovie_edit').toggle(200);
-        $('.itemtext_edit').hide();
+    $(".movieedit").click(function(){
+        var item_id = $(this).data("item-id");
+        $('.itemmovie_edit_' + item_id).toggle(200);
+    });
+});
+
+$(function() {
+    $(".imageedit").click(function(){
+        var item_id = $(this).data("item-id");
+        $('.itemimage_edit_' + item_id).toggle(200);
     });
 });

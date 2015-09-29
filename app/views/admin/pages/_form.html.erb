@@ -1,4 +1,7 @@
-#itemで作成を同じように行う
+<div class="test test_1">
+	#itemで作成を同じように行う
+</div>
+
 <h2>公開or下書き保存ボタン</h2>
 <%= form_for([:admin, @page]) do |f| %>
 	<div>
@@ -20,6 +23,6 @@
 <%= button_tag "画像追加", id: "itemimage"%>
 <%= button_tag "youtube追加", id: "itemmovie"%>
 
-<div id="form_part">
+<div class="form_part">
 	<%= render partial: 'item_form', locals: { page: @page, items: @items } %>
 </div>

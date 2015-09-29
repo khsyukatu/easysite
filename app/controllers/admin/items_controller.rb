@@ -18,6 +18,7 @@ class Admin::ItemsController < ApplicationController
     @items = @page.items.rank(:row_order)
     
     @item = Item.find(params[:id])
+    
     if@item.update(item_params)
       flash[:success] = "編集しました"
     else
@@ -51,8 +52,20 @@ class Admin::ItemsController < ApplicationController
   end
   
   private
+  def type
+    if params[:item].present?
+      "item"
+    elsif params[:itemtext].present?
+      params[:itemtext][:type]
+    elsif params[:itemmovie].present?
+      params[:itemmovie][:type]
+    elsif params[:itemimage].present?
+      params[:itemimage][:type]
+    end
+  end
+  
   def item_params
-    params.require(:item).permit(:type, :page_id, :title, :body, :movie, :image, :image_location, :row_order_position)
+    params.require(type.underscore.to_sym).permit(:type, :page_id, :title, :body, :movie, :image, :image_location, :row_order_position)
   end
   
 end
