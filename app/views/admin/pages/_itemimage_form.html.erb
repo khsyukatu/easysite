@@ -1,0 +1,24 @@
+<%= form_for([:admin, item], remote: true) do |f| %>
+  <%= hidden_field_tag :page_id, page.id %>
+  <%= f.hidden_field :type, value: "Itemimage" %>
+  
+  <div>
+    <label>見出し</label>
+    <div>
+      <%= f.text_field :title %>
+    </div>
+  </div>
+  <div>
+    <label>画像の位置</label>
+    <div>
+      <%= f.select :image_location, [["画像上", "top"], ["画像左", "left"], ["画像右", "right"]] %>
+    </div>
+  </div>
+  <div>
+    <label>画像の位置</label>
+    <div>
+      <%= f.file_field :image %>
+    </div>
+  </div>
+  <%= f.submit %>
+<% end %>

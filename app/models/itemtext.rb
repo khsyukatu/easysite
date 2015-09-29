@@ -16,4 +16,6 @@
 #
 
 class Itemtext < Item
+  validates :title, presence: true
+  validates :body, presence: true
 end

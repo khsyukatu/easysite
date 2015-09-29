@@ -17,9 +17,9 @@
 <% end %>
 
 <%= button_tag "テキスト追加", id: "itemtext"%>
-<%= button_tag "画像追加", id: "image_item"%>
+<%= button_tag "画像追加", id: "itemimage"%>
 <%= button_tag "youtube追加", id: "itemmovie"%>
 
 <div id="form_part">
-	<%= render partial: 'item_form', locals: { page: @page } %>
+	<%= render partial: 'item_form', locals: { page: @page, items: @items } %>
 </div>

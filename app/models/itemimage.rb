@@ -15,7 +15,10 @@
 #  row_order      :integer
 #
 
-class Itemmovie < Item
+class Itemimage < Item
+  mount_uploader :image, ImageUploader
+  
   validates :title, presence: true
-  validates :movie, presence: true
+  validates :image_location, presence: true
+  validates :image, presence: true
 end

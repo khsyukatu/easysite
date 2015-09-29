@@ -3,6 +3,7 @@ class Admin::ItemsController < ApplicationController
 
   def create
     @page = Page.find(params[:page_id])
+    @items = @page.items.rank(:row_order)
     
     @item = @page.items.build(item_params)
     if@item.save
@@ -14,7 +15,9 @@ class Admin::ItemsController < ApplicationController
   
   def update
     @page = Page.find(params[:page_id])
+    @items = @page.items.rank(:row_order)
     
+    @item = Item.find(params[:id])
     if@item.update(item_params)
       flash[:success] = "編集しました"
     else
@@ -23,13 +26,17 @@ class Admin::ItemsController < ApplicationController
   end
 
   def destroy
+    @page = Page.find(params[:page_id])
+    @items = @page.items.rank(:row_order)
+    
+    @item = Item.find(params[:id])
     @item.destroy
     flash[:success] = "削除しました"
-    redirect_to admin_root_path
   end
   
   def up_position
     @page = Page.find(params[:page_id])
+    @items = @page.items.rank(:row_order)
     
     @item = Item.find(params[:id])
     @item.update_attributes(row_order_position: :up)
@@ -37,6 +44,7 @@ class Admin::ItemsController < ApplicationController
   
   def down_position
     @page = Page.find(params[:page_id])
+    @items = @page.items.rank(:row_order)
     
     @item = Item.find(params[:id])
     @item.update_attributes(row_order_position: :down)
