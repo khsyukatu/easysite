@@ -1,0 +1,28 @@
+<% if @topimage.errors.any? %>
+<div class="error_box">
+	<%= @topimage.errors.count %>つのエラーがあります
+		<ul>
+			<% @topimage.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+</div>
+<% end %>
+
+<%= form_for([:admin, @topimage]) do |f| %>
+  <label>画像</label>
+  <div>
+    <%= f.file_field :image %>
+  </div>
+  <label>画像文言</label>
+  <div>
+    <%= f.text_field :title %>
+  </div>
+  <label>画像詳細説明</label>
+  <div>
+    <%= f.text_field :head_text %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

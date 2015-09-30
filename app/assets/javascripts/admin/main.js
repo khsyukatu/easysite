@@ -24,15 +24,14 @@ $(function() {
 
 
 $(function() {
-    $("#textedit").click(function(){
-        $('.itemtext_edit').toggle(200);
-        $('.itemmovie_edit').hide();
+    $(".textedit").click(function(){
+        var item_id = $(this).data("item-id");
+        $('.itemtext_edit_' + item_id).toggle(200);
     });
 });
 
 $(function() {
-    $("#movieedit").click(function(){
-        $('.itemmovie_edit').toggle(200);
-        $('.itemtext_edit').hide();
+    $(".alert_test").click(function(){
+        alert("success");
     });
 });

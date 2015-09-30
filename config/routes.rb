@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   
   namespace "admin" do
     root :to => "dashboard#index"
-    resources :services, :members, :articles, :faqs, :maps, :pages
+    resources :services, :members, :articles, :faqs, :maps, :pages, :topimages
     resources :page_images, :page_texts, only:[:create, :update ,:destroy]
     resources :items, only:[:create, :destroy, :update]
     resources :itemtexts, controller: :items, type: 'Itemtext', only:[:create, :destroy, :update]

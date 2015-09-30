@@ -25,3 +25,10 @@ $(function() {
         $('.itemtext_form').hide();
     });
 });
+
+$(function() {
+    $(".textedit").click(function(){
+        var item_id = $(this).data("item-id");
+        $('.itemtext_edit_' + item_id).toggle(200);
+    });
+});

@@ -38,6 +38,7 @@ class Site < ActiveRecord::Base
   validates_uniqueness_of :site_name
   
   #association
+  has_one :topimage
   has_one :service
   has_many :members
   has_many :articles
