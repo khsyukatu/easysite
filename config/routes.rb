@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   
   resources :sites, :only => [:show] do
-    
+    resources :articles, only:[:index, :show]
   end
   
   namespace "admin" do

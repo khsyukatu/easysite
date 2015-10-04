@@ -1,4 +1,58 @@
-<h1>Sites#show</h1>
-<div>
-  #トップ画像とタイトルの表示、サービスタイプ、画像、タイトル、テキストの表示、メンバーの表示などなど
+<header style="background-image:url(<%= @topimage.image.url %>)">
+  <div class="container">
+    <div class="intro-text">
+      <div class="intro-lead-in"><%= @site.topimage.title if @topimage.present? %></div>
+      <div class="intro-heading"><%= @topimage.head_text if @topimage.present? %></div>      
+    </div>
+  </div>
+</header>
+<div class="container">
+  
+  <div class="col-md-12 text-center">
+    <h2>サービス</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-1">
+      <%= image_tag(@service.image.url, class:"img img-responsive") %>
+    </div>
+    <div class="col-md-6">
+      <h3 class="text-center"><%= @service.title %></h3>
+      <p><%= @service.head_text %></p>        
+    </div>
+  </div>
+  
+  <div class="col-md-12 text-center">
+    <h2>お知らせ</h2>
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+      <% @articles.each do |article| %>
+        <div class="col-md-4 text-center">
+          <p class="date"><%= article.created_at.strftime("%Y.%m.%d") %></p>
+            <p class="news"><%= link_to article.title, site_article_path(@site, article) %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">メンバー</h2>        
+      </div>
+    </div>    
+    <% @members.each do |member| %>
+      <div class="row">
+        <div class="col-sm-2 col-sm-offset-1">
+          <div>
+            <%= image_tag(member.image.url, class:"img-responsive") %>            
+          </div>          
+        </div>
+        <div class="col-sm-9">
+          <h4><%= member.name %></h4>
+          <p class="text-muted"><%= member.description %></p>
+        </div>
+      </div>
+    <% end %>    
+  </div>
+  
 </div>

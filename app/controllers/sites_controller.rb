@@ -5,5 +5,11 @@ class SitesController < ApplicationController
     else
       @site = Site.find(params[:id])
     end
+    
+    @topimage = @site.topimage
+    @service = @site.service
+    @members = @site.members
+    @articles = @site.articles.order("created_at desc").limit(3)
+    
   end
 end
