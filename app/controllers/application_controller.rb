@@ -6,15 +6,11 @@ class ApplicationController < ActionController::Base
   layout :set_layout
   
   #layoutの設定
-  def set_layout
+  def set_layout #layoutシステムは今後しっかりと構築する必要がある
     if request.url =~ %r!/admin! #adminで管理画面にアクセスした場合
       return 'admin'
-    elsif request.subdomain.present? && request.subdomain != 'techacademy-khsyukatu' #'www'に変更すること  #サブドメインでアクセスした場合
-      @site = Site.friendly.find(request.subdomain)
-      puts @site.design_template if @site.design_template.present? #design_templateが存在しない場合はdefault
-    elsif request.url =~ %r!/sites!
-      #@site = Site.find(params[:id])
-      #puts @site.design_template if @site.design_template.present? #design_templateが存在しない場合はdefault
+    else
+      return "application"
     end
   end
   
