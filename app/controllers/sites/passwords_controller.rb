@@ -1,4 +1,5 @@
 class Sites::PasswordsController < Devise::PasswordsController
+  layout "paper"
   # GET /resource/password/new
   # def new
   #   super

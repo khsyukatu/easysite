@@ -1,4 +1,5 @@
 class Sites::ConfirmationsController < Devise::ConfirmationsController
+  layout "paper"
   # GET /resource/confirmation/new
   # def new
   #   super

@@ -1,0 +1,126 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *
+
+
+ */
+
+ 
+ .image_left_form {
+  display: none;
+}
+
+.image_right_form {
+  display: none;
+}
+
+.no_image_form {
+  display: none;
+}
+
+.image_top_form {
+  display: none;
+}
+
+.text_add_form {
+  display: none;
+}
+
+.itemtext_form, .itemmovie_form, .itemimage_form, .itemtext_edit, .itemmovie_edit {
+  display: none;
+}
+@charset "UTF-8";
+/* line 5, /home/ubuntu/workspace/easysite/app/assets/stylesheets/sites.scss */
+body {
+  padding-top: 60px;
+}
+
+/* line 9, /home/ubuntu/workspace/easysite/app/assets/stylesheets/sites.scss */
+.image_left_form {
+  display: none;
+}
+
+/* line 13, /home/ubuntu/workspace/easysite/app/assets/stylesheets/sites.scss */
+.image_right_form {
+  display: none;
+}
+
+/* line 17, /home/ubuntu/workspace/easysite/app/assets/stylesheets/sites.scss */
+.no_image_form {
+  display: none;
+}
+
+/* line 21, /home/ubuntu/workspace/easysite/app/assets/stylesheets/sites.scss */
+.image_top_form {
+  display: none;
+}
+
+/* line 25, /home/ubuntu/workspace/easysite/app/assets/stylesheets/sites.scss */
+.text_add_form {
+  display: none;
+}
+
+/* line 29, /home/ubuntu/workspace/easysite/app/assets/stylesheets/sites.scss */
+.itemtext_form, .itemmovie_form, .itemimage_form, .itemtext_edit, .itemmovie_edit {
+  display: none;
+}
+
+/* line 33, /home/ubuntu/workspace/easysite/app/assets/stylesheets/sites.scss */
+header {
+  text-align: center;
+  color: #fff;
+  background-attachment: scroll;
+  /* background-image: url("/assets/header-bg.jpg"); */
+  background-position: center center;
+  background-repeat: none;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+/* line 46, /home/ubuntu/workspace/easysite/app/assets/stylesheets/sites.scss */
+header .intro-text {
+  padding-top: 100px;
+  /* 自動的に真ん中になるように設定する？ */
+  padding-bottom: 50px;
+}
+
+/* line 51, /home/ubuntu/workspace/easysite/app/assets/stylesheets/sites.scss */
+header .intro-text .intro-lead-in {
+  margin-bottom: 25px;
+  font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 22px;
+  font-style: italic;
+  line-height: 22px;
+}
+
+/* line 59, /home/ubuntu/workspace/easysite/app/assets/stylesheets/sites.scss */
+header .intro-text .intro-lead-in input {
+  background-color: black;
+}
+
+/* line 63, /home/ubuntu/workspace/easysite/app/assets/stylesheets/sites.scss */
+header .intro-text .intro-heading input {
+  background-color: black;
+}
+
+/* line 67, /home/ubuntu/workspace/easysite/app/assets/stylesheets/sites.scss */
+header .intro-text .intro-heading {
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 50px;
+}
