@@ -1,34 +1,37 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<h1>簡単サイト作成</h1>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
   <%= devise_error_messages! %>
+  <fieldset>
+    <div class="form-group">
+      <label for="inputEmail" class="col-lg-2 control-label">メールアドレス</label>
+      <div class="col-lg-10">
+        <%= f.email_field :email, class: "form-control", placeholder: "メールアドレス" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail" class="col-lg-2 control-label">サイト名</label>
+      <div class="col-lg-10">
+        <%= f.text_field :site_name, class: "form-control", placeholder: "サイトの名前を入力してください" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail" class="col-lg-2 control-label">パスワード</label>
+      <div class="col-lg-10">
+        <%= f.password_field :password, class: "form-control", placeholder: "パスワード" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail" class="col-lg-2 control-label">パスワード確認用</label>
+      <div class="col-lg-10">
+        <%= f.password_field :password_confirmation, class: "form-control", placeholder: "パスワード再入力" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <%= f.submit "サイトを作成する", class:"btn btn-primary" %>
+      </div>
+    </div>
+  </fieldset>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :site_name %><br />
-    <%= f.text_field :site_name, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
 <% end %>
 
-<%= render "sites/shared/links" %>
