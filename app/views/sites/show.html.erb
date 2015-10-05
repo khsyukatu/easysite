@@ -1,11 +1,14 @@
+<% if @topimage.present? %>
 <header style="background-image:url(<%= @topimage.image.url %>)">
   <div class="container">
     <div class="intro-text">
-      <div class="intro-lead-in"><%= @site.topimage.title if @topimage.present? %></div>
-      <div class="intro-heading"><%= @topimage.head_text if @topimage.present? %></div>      
+      <div class="intro-lead-in"><%= @site.topimage.title %></div>
+      <div class="intro-heading"><%= @topimage.head_text %></div>      
     </div>
   </div>
 </header>
+<% end %>
+
 <div class="container">
   
   <div class="col-md-12 text-center">
