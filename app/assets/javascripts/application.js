@@ -14,3 +14,5 @@
 //= require jquery_ujs
 //= require jquery.remotipart
 //= require admin/main
+//= require paper/loader
+//= require paper/bootswatch
