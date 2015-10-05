@@ -13,26 +13,23 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">EasySite</a>
+      <a class="navbar-brand" href="/admin"><%= current_site.site_name %>管理画面</a>
     </div>
-    <div class="navbar-collapse collapse">
+    <div class="navbar-right navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+        <li><%= link_to "サイトを確認する", site_path(current_site) %></li>
+        <li><%= link_to "トップ画像", admin_topimages_path %></li>
+        <li><%= link_to "サービス", admin_services_path %></li>
+        <li><%= link_to "メンバー", admin_members_path %></li>
+        <li><%= link_to "よくある質問", admin_faqs_path %></li>
+        <li><%= link_to "お知らせ", admin_articles_path %></li>
+      </ul>
     </div><!--/.nav-collapse -->
-      </div>
-    </div>
-
-    <div class="container theme-showcase">
-      <%= yield %>
-    </div>  
+      
+  </div>
+</div>
+  <div class="container theme-showcase">
+    <%= yield %>
+  </div>  
 </body>
 </html>
