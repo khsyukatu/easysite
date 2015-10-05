@@ -30,6 +30,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
             <% if site_signed_in? %>
+              <li><%= link_to "管理画面", admin_root_path %></li>
               <li><%= link_to "ログアウト", destroy_site_session_path, :method => :delete %></li>
             <% else %>
               <li><%= link_to "ログイン", new_site_session_path %></li>
@@ -42,9 +43,6 @@
 
     <div class="container theme-showcase">
       <%= yield %>
-
-
-
     </div> <!-- /container -->
 
     <!-- Javascripts
