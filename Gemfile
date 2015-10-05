@@ -58,4 +58,3 @@ gem 'twitter-bootswatch-rails', '~> 3.1.1'
 gem 'twitter-bootswatch-rails-helpers'
 gem 'execjs'
 gem 'less-rails'
-gem 'rest-client' #mailgunにてsmtpではなくhttpで送信するために必要なgem
