@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>よくある質問</h1>
+  <% @faqs.each do |faq| %>
+    <h2><%= faq.title %></h2>
+    <div><%= faq.body %></div>
+  <% end %>
+</div>

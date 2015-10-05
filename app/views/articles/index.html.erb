@@ -1,0 +1,10 @@
+<h1>お知らせ一覧</h1>
+<% @articles.each do |article| %>
+  <p class="date">
+    <%= article.created_at.strftime("%Y.%m.%d") %>
+    <% if Date.today - article.created_at.to_date < 1 %>
+      <span class="label label-danger">New!</span>
+    <% end %>
+  </p>
+  <p class="news"><%= link_to article.title, site_article_path(@site, article) %></p>
+<% end %>

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
   resources :sites, :only => [:show] do
     resources :articles, only:[:index, :show]
+    resources :faqs, only:[:index]
   end
   
   namespace "admin" do
