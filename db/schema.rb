@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930054043) do
+ActiveRecord::Schema.define(version: 20151006002656) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -22,6 +22,25 @@ ActiveRecord::Schema.define(version: 20150930054043) do
   end
 
   add_index "articles", ["site_id"], name: "index_articles_on_site_id"
+
+  create_table "blocks", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "site_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "blocks", ["site_id"], name: "index_blocks_on_site_id"
+
+  create_table "cells", force: :cascade do |t|
+    t.string   "title"
+    t.string   "body"
+    t.integer  "block_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "cells", ["block_id"], name: "index_cells_on_block_id"
 
   create_table "design_templates", force: :cascade do |t|
     t.string   "name"

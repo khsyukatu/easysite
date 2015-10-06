@@ -41,6 +41,8 @@ class Site < ActiveRecord::Base
   has_one :topimage
   has_one :service
   has_many :members
+  has_many :blocks
+  has_many :cells, :through => :blocks
   has_many :articles
   has_many :faqs
   has_many :pages
