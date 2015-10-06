@@ -1,0 +1,8 @@
+<div>
+  <%= link_to "新規作成", new_admin_block_path %>
+</div>
+
+<% @blocks.each do |block| %>
+  <h2><%= block.title %></h2>
+  <div><%= link_to "編集", edit_admin_block_path(block) %></div>
+<% end %>

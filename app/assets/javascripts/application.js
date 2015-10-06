@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.remotipart
-//= require admin/main
 //= require paper/loader
 //= require paper/bootswatch
+//= require jquery.remotipart
+//= require admin/main
+//= require jquery_nested_form

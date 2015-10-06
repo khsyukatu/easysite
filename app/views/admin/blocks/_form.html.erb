@@ -1,0 +1,18 @@
+<h1>aboutページの編集</h1>
+<%= nested_form_for([:admin, @block]) do |f| %>
+  <div>
+    <label>タイトル</label>
+    <div>
+      <%= f.text_field :title %>
+    </div>
+  </div>
+  <div class="field">
+		<%= f.fields_for :cells do |cell| %>
+			<%= render "fields_cell", f: cell %>
+		<% end %>
+	</div>
+	<p><%= f.link_to_add "必要情報追加", :cells, class:"btn btn-success" %></p>
+  
+  
+  <%= f.submit %>
+<% end %>
